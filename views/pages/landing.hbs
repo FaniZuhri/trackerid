@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+    <title>Landing Page - TrackerID</title>
+  <link rel="icon" href="images/map.png">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template-->
+  <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="stylesheets/stylish-portfolio.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+            <div class="collapse navbar-collapse" id="primary_menu">
+                <ul class="nav navbar-nav mainmenu">
+                    <li class="active"><a href="#home_page">Home</a></li>
+                    <li><a href="#about_page">About</a></li>
+                    <li><a href="#features_page">Features</a></li>
+                    <li><a href="#gallery_page">Gallery</a></li>
+                    <li><a href="#price_page">Pricing</a></li>
+                    <li><a href="#questions_page">FAQ</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#contact_page">Contacts</a></li>
+                </ul>
+                <div class="right-button hidden-xs">
+                    <a href="#">Sign Up</a>
+                </div>
+            </div>
+    <!-- Navigation -->
+    <a class="menu-toggle rounded" href="#">
+        <i class="fas fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a class="js-scroll-trigger">TrackerID</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="/login">Sign In</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="/register">Sign Up</a>
+            </li>
+            {{!-- <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#services">Services</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#contact">Contact</a>
+            </li> --}}
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead d-flex">
+        {{!-- <div class="row"> --}}
+            <div class="container text-center my-auto">
+
+                <h1 class="mb-1" style="">TrackerID</h1>
+                <h3 class="mb-5">
+                    <em>Track Your Device! Antares Integrated</em>
+                </h3>
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <a style=""class="btn btn-primary btn-block btn-xl js-scroll-trigger" href="/login">Sign In</a>
+                    </div>                    
+                    <div class="col-lg-4"></div>
+                </div><br>
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <a class="btn btn-success btn-xl btn-block js-scroll-trigger" href="/register">Sign Up</a>
+                    </div>
+                    <div class="col-lg-4"></div>
+                </div>
+
+                
+                
+                
+            </div>
+        {{!-- </div> --}}
+        <div class="overlay"></div>
+    </header><br><br>
+
+    <div class="container-fluid">
+
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-uppercase mb-1">Dragino Tracker Supported</div>
+                            {{!-- <div id="loc" class="h4 mb-0 font-weight-bold text-gray-800">{{satu.lat}},{{satu.long}}
+                            </div>
+                            <div class="text-xs  text-grey" id="dateupdate1">Last Data : {{satu.time}} </div> --}}
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-map-marker-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card View -->
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-uppercase mb-1">Integrated With Antares</div>
+                            {{!-- <div id="batt" class="h4 mb-0 font-weight-bold text-gray-800">{{satu.percent}}% </div>
+                            <div class="text-xs  text-grey " id="dateupdate2">Last Data : {{satu.time}} </div> --}}
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-battery-half fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-uppercase mb-1">Alarm Status</div>
+                            {{!-- <div id="alarm" class="h4 mb-0 font-weight-bold text-gray-800">{{satu.alarm}} </div>
+                            <div class="text-xs  text-grey " id="dateupdate3">Last Data : {{satu.time}}
+
+                            </div> --}}
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-bell fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      {{!-- <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="#">
+            <i class="icon-social-facebook"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="#">
+            <i class="icon-social-twitter"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="#">
+            <i class="icon-social-github"></i>
+          </a>
+        </li>
+      </ul> --}}
+      <p class="text-muted small mb-0">Copyright &copy; TrackerID 2019</p>
+    </div>
+  </footer>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    
+  <!-- icon font -->
+  <script src="https://kit.fontawesome.com/3da2044cab.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="javascripts/stylish-portfolio.min.js"></script>
+
+</body>
+
+</html>
