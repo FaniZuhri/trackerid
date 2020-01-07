@@ -27,6 +27,30 @@ var schema = new Schema({
 
 schema.set('timestamps', true)
 
+schema.pre('save', function (next) {
+    var trackerid = this
+  
+    if (!trackerid.isModified('pass')) return next()
+  
+    bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
+      if (err) return next(err)
+  
+      bcrypt.hash(trackerid.pass, salt, function (err, hash) {
+        if (err) return next(err)
+  
+        trackerid.pass = hash
+        next()
+      })
+    })
+  })
+  
+  schema.methods.comparePassword = function (candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.pass, function (err, isMatch) {
+      if (err) return cb(err)
+      cb(null, isMatch)
+    })
+  };
+
 schema.virtual('id').get( function() {
     return this._id.toHexString()
 })
