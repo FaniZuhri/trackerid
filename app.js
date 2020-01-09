@@ -27,6 +27,8 @@ var create = require('./routes/create');
 var del = require('./routes/delete');
 var notif = require('./routes/notif');
 var activate = require('./routes/activate');
+var users = require('./routes/userpage');
+var deletes = require('./routes/deletes');
 var app = express();
 
 // var client = redis.createClient();
@@ -109,6 +111,8 @@ app.use('/logout', auth);
 app.use('/delete', del);
 app.use('/notif', notif);
 app.use('/activate', activate);
+app.use('/users', users);
+app.use('/deletes', deletes);
 
 
 app.use(express.static(path.join(__dirname, 'public')));
