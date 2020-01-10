@@ -54,7 +54,7 @@ router.get('/:id', (req, res, next) => {
               Devname.find({
                 devicename: devnamee
               }, 'tipe', (err, type) => {
-                console.log(type)
+                // console.log(type)
                 function savedragino() {
                   var data1 = response.data['m2m:cin']['con']
                   var time = response.data['m2m:cin']['lt']
@@ -324,13 +324,13 @@ router.get('/:id', (req, res, next) => {
                 if (err) {
                   console.log(err)
                 } 
-                else if (type.tipe == 1) {
+                else if (type[0].tipe == '1') {
                   savedragino()
                 }
-                else if (type.tipe == 2) {
+                else if (type[0].tipe == '2') {
                   savegps()
                 }
-                else if (type.tipe == 3) {
+                else if (type[0].tipe == '3') {
                   saveglobalsat()
                 }
                 else {
@@ -353,8 +353,6 @@ router.get('/:id', (req, res, next) => {
                         devicename: devnamee
                       }, {
                         $set: {
-                          active : 0,
-                          owner : 'admin',
                           lat: 0,
                           long: 0,
                           status: 0,
