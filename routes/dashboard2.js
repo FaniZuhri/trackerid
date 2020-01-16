@@ -161,6 +161,15 @@ router.get('/:id', (req, res, next) => {
                   var lat2 = data1[2]
                   var long2 = data1[3]
                   var alt2 = data1[4].substr(0, 6)
+                  if (lat2==null){
+                    lat2 = 0
+                  }
+                  if (long2==null){
+                    long2 = 0
+                  }
+                  if (alt2==null){
+                    alt2 = 0
+                  }
                   var devname = new Devname()
                   devname.devicename = devnamee
                   // devname.tipe = 2
@@ -219,7 +228,15 @@ router.get('/:id', (req, res, next) => {
                   var long = data1.substr(14, 8)
                   long = hexdec.hexToDec(long) * 0.000001
                   // console.log(long)
-  
+                  if (lat ==null){
+                    lat = 0
+                  }
+                  if (long ==null){
+                    long = 0
+                  }
+                  if (percent ==null){
+                    percent = 0
+                  }
                   // gr = hexbin(gr)
                   // console.log(gr)
                   var status = (hexdec.hexToDec(gr)) / bagi
