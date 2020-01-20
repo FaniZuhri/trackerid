@@ -7,31 +7,32 @@ var Devdat = require('../model/devdat.js')
 var session = require('express-session')
 var chalk = require('chalk')
 var moment = require('moment')
+var unirest = require('unirest')
 
 /* GET users listing. */
 router.get('/:id', function (req, res, next) {
   if (req.session.login == true) {
-    nofresh=true
+    nofresh = true
     id = req.params.id
-    if (req.session.name=='admin'){
-      admin=true
+    if (req.session.name == 'admin') {
+      admin = true
       res.render('./pages/create', {
         idd: req.session.id2,
         user: req.session.name,
-        admin:admin,
-        nofresh:nofresh,
+        admin: admin,
+        nofresh: nofresh,
       })
     }
-    else{
-      admin=false
+    else {
+      admin = false
       res.render('./pages/create', {
         idd: req.session.id2,
         user: req.session.name,
-        admin:admin,
-        nofresh:nofresh,
+        admin: admin,
+        nofresh: nofresh,
       })
     }
-   
+
   } else {
     res.redirect('/')
   }
@@ -51,18 +52,24 @@ router.post('/:id', function (req, res, next) {
     function abc() {
       console.log('success')
       var link = 'https://platform.antares.id:8443/~/antares-cse/antares-id/AntaresDemo'
+      var link2 = 'https://platform.antares.id:8443/~/antares-cse/antares-id/AntaresDemo/'+devicename
       var headers = {
         'X-M2M-Origin': 'e7e349fc2216941a:9d0cf82c25277bdd',
         'Content-Type': 'application/json;ty=3',
         'Accept': 'application/json',
       }
+      var headers2 = {
+        'X-M2M-Origin': 'e7e349fc2216941a:9d0cf82c25277bdd',
+        'Content-Type': 'application/json;ty=4',
+        'Accept': 'application/json',
+      }
       axios.post(link, {
-          "m2m:cnt": {
-            "rn": devicename
-          }
-        }, {
-          headers: headers,
-        })
+        "m2m:cnt": {
+          "rn": devicename
+        }
+      }, {
+        headers: headers,
+      })
         .then((response) => {
           console.log(response.data['m2m:cnt'].rn)
           var devname = new Devname()
@@ -71,15 +78,15 @@ router.post('/:id', function (req, res, next) {
           devname.active = 0
           devname.lat = lat
           devname.long = long
-          if(tipe==1){
+          if (tipe == 1) {
             devname.status = 'OFF'
             devname.alt = 0
           }
-          if(tipe==3){
+          if (tipe == 3) {
             devname.status = '2D'
             devname.alt = 'Periodic Mode'
           }
-          if(tipe==2){
+          if (tipe == 2) {
             devname.status = 'OFF'
             devname.alt = 0
           }
@@ -87,12 +94,28 @@ router.post('/:id', function (req, res, next) {
           devname.owner = owner
           devname.save((err, y) => {
             if (!err) {
-              console.log(y)
+              // console.log(y)
             } else {
               // console.log(err)
               //
             }
           })
+          setTimeout(function(){ 
+            axios.post(link2, 
+            {
+              "m2m:cin": {
+                "con": "$20122019,1335250,-6.873583,107.586571,864.60*"
+              }
+            }, {
+              headers: headers2,
+            })
+            .then(()=>{
+              console.log(chalk.green('post data succeeded'))
+            })
+            .catch(()=>{
+            console.log(chalk.redBright('post data error'))             
+            })        
+          }, 1500);
         })
         .catch((error) => {
           console.log(error)

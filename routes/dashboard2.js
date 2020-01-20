@@ -41,16 +41,12 @@ router.get('/:id', (req, res, next) => {
               headers: {
                 'X-M2M-Origin': 'e7e349fc2216941a:9d0cf82c25277bdd',
                 'Content-Type': 'application/json;ty=4',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Connection': 'keep-alive',
               }
             })
             .then((response) => {
-              // console.log(response)
-              // console.log(devnamee)
-
-
-
-
+              // console.log(chalk.blue(response.data['m2m:cin']['con']))
               Devname.find({
                 devicename: devnamee
               }, 'tipe', (err, type) => {
@@ -338,19 +334,8 @@ router.get('/:id', (req, res, next) => {
                     }
                   })
                 }
-                if (err) {
-                  console.log(err)
-                } 
-                else if (type[0].tipe == '1') {
-                  savedragino()
-                }
-                else if (type[0].tipe == '2') {
-                  savegps()
-                }
-                else if (type[0].tipe == '3') {
-                  saveglobalsat()
-                }
-                else {
+
+                function whenerror(){
                   var devname = new Devname()
                   devname.devicename = devnamee
                   devname.tipe = 1
@@ -388,10 +373,32 @@ router.get('/:id', (req, res, next) => {
                     }
                   })
                 }
+                if (err) {
+                  whenerror()
+                  console.log(err)
+                } 
+                else if (type[0] == null){
+                  whenerror()
+                  console.log('welcome new device!')
+                }
+                else if (type[0].tipe == '1') {
+                  savedragino()
+                }
+                else if (type[0].tipe == '2') {
+                  savegps()
+                }
+                else if (type[0].tipe == '3') {
+                  saveglobalsat()
+                }
+                else {
+                  whenerror()
+                  console.log('abcd')
+                }
               })
             })
             .catch((error) => {
-              // console.log(chalk.yellow(error))
+              console.log(chalk.yellow(error))
+              // res.render('error')
             })
 
         })
