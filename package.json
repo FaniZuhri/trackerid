@@ -26,7 +26,7 @@
     "handlebars-helpers": "^0.10.0",
     "handlebars-paginate": "^0.1.0",
     "handlebars.numeral": "^0.2.0",
-    "hbs": "~4.0.4",
+    "hbs": "^4.1.0",
     "hex-to-binary": "^1.0.1",
     "hex2dec": "^1.1.2",
     "hex64": "^0.4.0",
@@ -41,6 +41,7 @@
     "req-flash": "0.0.3",
     "timeago": "^1.6.7",
     "timestamp-mongoose": "0.0.2",
+    "unirest": "^0.6.0",
     "validator": "^12.1.0",
     "yarn": "^1.19.1"
   }

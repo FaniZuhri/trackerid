@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"tracker.devnames"},{"v":{"$numberInt":"2"},"unique":true,"key":{"devicename":{"$numberInt":"1"}},"name":"devicename_1","ns":"tracker.devnames","background":true}],"uuid":"538d75d035d6437ca73542f6fbb241d4"}
