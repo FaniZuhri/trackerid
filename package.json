@@ -42,7 +42,7 @@
     "timeago": "^1.6.7",
     "timestamp-mongoose": "0.0.2",
     "unirest": "^0.6.0",
-    "validator": "^12.1.0",
+    "validator": "^13.7.0",
     "yarn": "^1.19.1"
   }
 }
