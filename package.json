@@ -35,7 +35,7 @@
     "moment": "^2.24.0",
     "mongoose": "^5.7.11",
     "morgan": "~1.9.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3.1.1",
     "nodemon": "^1.19.4",
     "redis": "^2.8.0",
     "req-flash": "0.0.3",
